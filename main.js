@@ -27,9 +27,41 @@ const getEmail = (user) =>{
     return email;
 }
 
-const getPlayListLength = (playlist) =>{
-    
+const getPlaylistLength = (playlist) =>{
+    let songNum = 0;
+    for(let song in playlist){
+        //console.log(song);
+        if(song === "songs"){
+            songNum = playlist[song].length;
+        }
+    }
+    return songNum;
 }
+
+const getHardestHomework = (homework) =>{
+    if (homework.length === 0) return '';
+
+    let hardest = homework[0].name;
+    let lowest = homework[0].averageScore;
+
+    for (let i in homework) {
+        if (homework[i].averageScore < lowest) {
+            lowest = homework[i].averageScore;
+            hardest = homework[i].name;
+        }
+    }
+
+    return hardest;
+}
+
+const createPhonebook = (names, numbers) =>{
+    let phoneBook = {};
+    for (let i in names) {
+        phoneBook[names[i]] = numbers[i];
+    }
+    return phoneBook;
+}
+
 
 
 
